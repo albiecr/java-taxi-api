@@ -1,4 +1,4 @@
-package com.taxiapp.taxi_api.Model;
+package com.taxiapp.taxi_api.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

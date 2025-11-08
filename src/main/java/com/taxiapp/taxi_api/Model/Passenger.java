@@ -1,4 +1,4 @@
-package com.taxiapp.taxi_api.Model;
+package com.taxiapp.taxi_api.model;
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
