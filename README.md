@@ -27,8 +27,6 @@ This repository contains the back-end (API) for the ride-hailing system. It is r
 
 This project was developed to apply and deepen knowledge in RESTful API development using the Spring ecosystem.
 
----
-
 ## 🛠️ Technologies Used
 
 The project was built with the following technologies:
@@ -39,8 +37,6 @@ The project was built with the following technologies:
 * **Database:** MySQL
 * **Package Manager:** Maven
 * **Testing Tool:** Postman
-
----
 
 ## 🚀 How to Run the Project
 
