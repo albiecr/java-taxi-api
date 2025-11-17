@@ -7,99 +7,47 @@ import com.taxiapp.taxi_api.model.Passenger;
 /**
  * DTO (Data Transfer Object) para enviar os dados de um Passageiro
  * de volta ao cliente (front-end).
- * * Note que este objeto NÃO inclui o campo 'password', por segurança.
+ *
+ * <p>Como um 'record', esta classe é imutável e concisa,
+ * expondo apenas os dados seguros da entidade.</p>
+ *
+ * @param id        O ID único do passageiro.
+ * @param name      O nome completo do passageiro.
+ * @param username  O nome de usuário (login) do passageiro.
+ * @param address   O endereço principal do passageiro.
+ * @param phone     O telefone de contato do passageiro.
+ * @param email     O e-mail de contato do passageiro.
+ * @param createdAt A data e hora em que a conta foi criada.
+ *
+ * @see com.taxiapp.taxi_api.model.Passenger
  */
-public class PassengerResponseDTO {
-
-    private Long id;
-    private String name;
-    private String username;
-    private String address;
-    private String phone;
-    private String email;
-    private LocalDateTime createdAt;
-
+public record PassengerResponseDTO(
+    Long id,
+    String name,
+    String username,
+    String address,
+    String phone,
+    String email,
+    LocalDateTime createdAt
+) {
+    
     /**
-     * Construtor padrão (vazio)
-     * O Spring precisa disso para alguns processos internos.
+     * Método factory estático para mapear de uma entidade Passenger.
+     * <p>Esta é a forma idiomática de converter uma Entidade
+     * em um DTO de 'record'.</p>
+     *
+     * @param passenger A entidade {@link Passenger} vinda do banco de dados.
+     * @return Uma nova instância de {@link PassengerResponseDTO} com os dados mapeados.
      */
-    public PassengerResponseDTO() {
+    public static PassengerResponseDTO fromEntity(Passenger passenger) {
+        return new PassengerResponseDTO(
+            passenger.getId(),
+            passenger.getName(),
+            passenger.getUsername(),
+            passenger.getAddress(),
+            passenger.getPhone(),
+            passenger.getEmail(),
+            passenger.getCreatedAt()
+        );
     }
-
-    /**
-     * Construtor de Mapeamento.
-     * Recebe a entidade 'Passenger' e "mapeia" os campos
-     * desta entidade para os campos do DTO.
-     * @param passenger A entidade vinda do banco de dados.
-     */
-    public PassengerResponseDTO(Passenger passenger) {
-        this.id = passenger.getId();
-        this.name = passenger.getName();
-        this.username = passenger.getUsername();
-        this.address = passenger.getAddress();
-        this.phone = passenger.getPhone();
-        this.email = passenger.getEmail();
-        this.createdAt = passenger.getCreatedAt();
-    }
-
-    // --- Getters e Setters ---
-    // O Spring (Jackson) usa estes métodos para converter o objeto em JSON.
-
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUsername() {
-        return this.username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getAddress() {
-        return this.address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return this.phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
- 
 }
