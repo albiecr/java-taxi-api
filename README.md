@@ -51,8 +51,8 @@ Follow the steps below to run the application locally.
 ### 2. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/taxi-api.git
-cd taxi-api
+git clone https://github.com/albiecr/java-taxi-api.git
+cd java-taxi-api
 ```
 ### 3. Configure the Database
 1. Access your MySQL terminal (or MySQL Workbench).
@@ -144,8 +144,8 @@ Siga os passos abaixo para executar a aplicação localmente.
 
 ### 2. Clone o repositório
 ```bash
-git clone https://github.com/YOUR-USERNAME/taxi-api.git
-cd taxi-api
+git clone https://github.com/albiecr/java-taxi-api.git
+cd java-taxi-api
 ```
 
 ### 3. Configurar o Banco de Dados
