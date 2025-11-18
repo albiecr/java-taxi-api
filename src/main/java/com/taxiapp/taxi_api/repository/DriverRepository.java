@@ -30,6 +30,6 @@ public interface  DriverRepository extends JpaRepository<Driver, Long> {
      * @param email O e-mail a ser buscado.
      * @return um Optional contendo o Driver se encontrado, ou vazio caso contrário.
      */
-    Optional<Driver> findByEmail(String email);
+    Optional<Driver> findByVehiclePlate(String vehiclePlate);
     
 }

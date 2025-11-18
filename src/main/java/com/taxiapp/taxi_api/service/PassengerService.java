@@ -100,7 +100,7 @@ public class PassengerService {
      * ou {@link Optional#empty()} se não for encontrado.
      */
     @Transactional(readOnly = true)
-    public Optional<PassengerResponseDTO> getPassengerbyId(Long id) {
+    public Optional<PassengerResponseDTO> getPassengerbyId(long id) {
         return passengerRepository.findById(id)
                 .map(passengerMapper::toResponseDTO);
     }
@@ -132,7 +132,8 @@ public class PassengerService {
      */
     @Transactional(readOnly = true)
     public List<PassengerResponseDTO> getAllPassengers() {
-        return passengerRepository.findAll().stream()
+        return passengerRepository.findAll()
+                .stream()
                 .map(passengerMapper::toResponseDTO)
                 .collect(Collectors.toList());
     }
