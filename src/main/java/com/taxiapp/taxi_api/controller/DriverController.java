@@ -141,18 +141,13 @@ public class DriverController {
      * motorista não existir.</p>
      * @see DriverService#updateDriver(Long, DriverRequestDTO)
      */
-    @PutMapping("path/{id}")
-    public ResponseEntity<DriverResponseDTO> updatePassenger(@PathVariable Long id, @Valid @RequestBody DriverRequestDTO requestDTO) {
-        try {
+    @PutMapping("/{id}")
+    public ResponseEntity<DriverResponseDTO> updateDriver(@PathVariable Long id, @Valid @RequestBody DriverRequestDTO requestDTO) {
             // 1. Chama o service para atualizar o motorista
             DriverResponseDTO updatedDriver = driverService.updateDriver(id, requestDTO);
 
             // 2. Retorna 200 OK com o motorista atualizado
             return ResponseEntity.ok(updatedDriver);
-        } catch (IllegalArgumentException e) {
-            // Retorna 404 Not Found se o ID do motorista não existir
-            return ResponseEntity.notFound().build();
-        }
     }
 
     /**

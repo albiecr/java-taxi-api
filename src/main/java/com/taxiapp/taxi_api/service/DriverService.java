@@ -86,10 +86,13 @@ public class DriverService {
         // 2. Conversão do DTO para Entidade
         Driver newDriver = driverMapper.toEntity(requestDTO);
 
-        // 3. Salvamento da Entidade no Banco de Dados
+        // 3. Define que o motorista começa como "Disponível"
+        newDriver.setAvailable(true); 
+
+        // 4. Salvamento da Entidade no Banco de Dados
         Driver savedDriver = driverRepository.save(newDriver);
 
-        // 4. Conversão da Entidade Salva para DTO de Resposta
+        // 5. Conversão da Entidade Salva para DTO de Resposta
         return driverMapper.toResponseDTO(savedDriver);
     }
     
