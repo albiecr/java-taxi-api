@@ -35,7 +35,7 @@ import jakarta.validation.Valid;
  * @see PassengerService
  * @see PassengerRequestDTO
  * @see PassengerResponseDTO
- * @author [Seu Nome/Equipe]
+ * @author albiecr
  * @version 1.0.0
  */
 @RestController
@@ -113,8 +113,10 @@ public class PassengerController {
      */
     @GetMapping
     public ResponseEntity<List<PassengerResponseDTO>> getAllPassengers() {
-        // Retorna 200 OK com a lista (pode ser vazia)
-        return ResponseEntity.ok(passengerService.getAllPassengers());
+        // 1. Chama o service para obter todos os passageiros
+        List<PassengerResponseDTO> passengers = passengerService.getAllPassengers();
+        // 2. Retorna 200 OK com a lista (pode ser vazia)
+        return ResponseEntity.ok(passengers);
     }
 
     /**
