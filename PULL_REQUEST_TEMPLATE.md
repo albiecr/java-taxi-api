@@ -19,9 +19,9 @@ Closes #
 - 
 
 ## Testing
-- [ ] ✅ Locally tested
-- [ ] ✅ Unit tests added/updated
-- [ ] ✅ Verified in [environment: production/staging]
+- [ ] Locally tested
+- [ ] Unit tests added/updated
+- [ ] Verified in [environment: production/staging]
 
 ## Screenshots (if applicable)
 <!-- Add before/after screenshots for UI changes -->
