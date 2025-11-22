@@ -41,16 +41,21 @@ public class DriverService {
     /**
      * Injeção do repositório para acesso aos dados dos dados dos motoristas.
      */
-    @Autowired
-    private DriverRepository driverRepository;
+    private final DriverRepository driverRepository;
 
     /**
      * Injeção do mapper para conversão entre Entidades e DTOs.
      */
-    @Autowired
-    
-    private DriverMapper  driverMapper;
+    private final DriverMapper  driverMapper;
 
+    /**
+     * Construtor para Injeção de Dependência.
+     */
+    @Autowired
+    public DriverService(DriverRepository driverRepository, DriverMapper driverMapper) {
+        this.driverRepository = driverRepository;
+        this.driverMapper = driverMapper;
+    }
    /**
      * Cria um novo motorista no sistema.
      *
